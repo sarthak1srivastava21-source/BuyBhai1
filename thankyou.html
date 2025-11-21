@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Thank You for Your Purchase</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f0f8ff;
+      margin: 0;
+      padding: 20px;
+    }
+    .thankyou-box {
+      max-width: 600px;
+      margin: auto;
+      background: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      padding: 30px;
+      text-align: center;
+    }
+    h1 {
+      color: #2e8b57;
+    }
+    .product-list {
+      margin-top: 20px;
+      text-align: left;
+    }
+    .product-item {
+      background: #f1f1f1;
+      padding: 10px 15px;
+      margin-bottom: 10px;
+      border-radius: 6px;
+      display: flex;
+      justify-content: space-between;
+    }
+    .total {
+      font-weight: bold;
+      font-size: 18px;
+      color: #007bff;
+      margin-top: 20px;
+      text-align: right;
+    }
+    .home-btn {
+      margin-top: 30px;
+      padding: 12px 24px;
+      background: linear-gradient(45deg, #00c6ff, #0072ff);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      box-shadow: 0 0 15px rgba(0, 114, 255, 0.6);
+      transition: 0.3s ease;
+    }
+    .home-btn:hover {
+      box-shadow: 0 0 25px rgba(0, 114, 255, 0.9);
+    }
+  </style>
+</head>
+<body>
+
+<div class="thankyou-box">
+  <h1>🎉 Thank You for Your Purchase!</h1>
+  <p>We appreciate your order. Here's a summary of your items:</p>
+
+  <div class="product-list" id="product-list"></div>
+  <div class="total" id="total-amount">Total: ₹0</div>
+
+  <a href="products.html"><button class="home-btn">⬅ Back to Shopping</button></a>
+</div>
+
+<script>
+  const cart = JSON.parse(localStorage.getItem("cart")) || [];
+  const list = document.getElementById("product-list");
+  const totalDiv = document.getElementById("total-amount");
+  let total = 0;
+
+  if (cart.length === 0) {
+    list.innerHTML = "<p>No items found in your cart.</p>";
+  } else {
+    cart.forEach(item => {
+      const div = document.createElement("div");
+      div.className = "product-item";
+      div.innerHTML = `<span>${item.name}</span><span>₹${item.price}</span>`;
+      list.appendChild(div);
+      total += item.price;
+    });
+    totalDiv.textContent = `Total: ₹${total}`;
+  }
+
+  localStorage.removeItem("cart"); // Clear cart after displaying
+</script>
+
+</body>
+</html>

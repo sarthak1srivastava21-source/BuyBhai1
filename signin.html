@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sign In / Sign Up</title>
+</head>
+
+<body style="margin:0; padding:0; font-family:'Segoe UI',sans-serif; background:linear-gradient(to right,#6a11cb,#c9cf10); display:flex; justify-content:center; align-items:center; height:100vh;">
+    
+
+  <div style="background:#fff; padding:2rem; border-radius:12px; box-shadow:0 10px 25px rgba(0,0,0,0.2); width:100%; max-width:400px; transition:all 0.3s ease;">
+    <a href="index.html" style="display:inline-block; font-size:0.85rem; padding:4px 8px; background:#eee; color:#2575fc; border-radius:4px; text-decoration:none; margin-bottom:1rem;">← Home</a>
+    
+    <div style="display:flex; justify-content:space-between; margin-bottom:1.5rem;">
+      <button id="signInBtn" style="flex:1; padding:0.75rem; border:none; background:#2575fc; color:white; font-weight:bold; cursor:pointer;">Sign In</button>
+      <button id="signUpBtn" style="flex:1; padding:0.75rem; border:none; background:#eee; font-weight:bold; cursor:pointer;">Sign Up</button>
+    </div>
+
+    <form id="signInForm" style="display:flex; flex-direction:column;">
+      <h2 style="margin-bottom:1rem; color:#333;">Welcome Back</h2>
+      <input type="email" placeholder="Email" required style="padding:0.75rem; margin-bottom:1rem; border:1px solid #ccc; border-radius:6px;" />
+      <input type="password" placeholder="Password" required style="padding:0.75rem; margin-bottom:1rem; border:1px solid #ccc; border-radius:6px;" />
+      <button type="submit" style="padding:0.75rem; background:#2575fc; color:white; border:none; border-radius:6px; font-weight:bold; cursor:pointer;">Sign In</button>
+    </form>
+
+    <form id="signUpForm" style="display:none; flex-direction:column;">
+      <h2 style="margin-bottom:1rem; color:#333;">Create Account</h2>
+      <input type="text" placeholder="Full Name" required style="padding:0.75rem; margin-bottom:1rem; border:1px solid #ccc; border-radius:6px;" />
+      <input type="email" placeholder="Email" required style="padding:0.75rem; margin-bottom:1rem; border:1px solid #ccc; border-radius:6px;" />
+      <input type="password" placeholder="Password" required style="padding:0.75rem; margin-bottom:1rem; border:1px solid #ccc; border-radius:6px;" />
+      <button type="submit" style="padding:0.75rem; background:#2575fc; color:white; border:none; border-radius:6px; font-weight:bold; cursor:pointer;">Sign Up</button>
+    </form>
+  </div>
+
+  <script>
+    const signInBtn = document.getElementById('signInBtn');
+    const signUpBtn = document.getElementById('signUpBtn');
+    const signInForm = document.getElementById('signInForm');
+    const signUpForm = document.getElementById('signUpForm');
+
+    signInBtn.onclick = () => {
+      signInForm.style.display = 'flex';
+      signUpForm.style.display = 'none';
+      signInBtn.style.background = '#2575fc';
+      signInBtn.style.color = 'white';
+      signUpBtn.style.background = '#eee';
+      signUpBtn.style.color = 'black';
+    };
+
+    signUpBtn.onclick = () => {
+      signUpForm.style.display = 'flex';
+      signInForm.style.display = 'none';
+      signUpBtn.style.background = '#2575fc';
+      signUpBtn.style.color = 'white';
+      signInBtn.style.background = '#eee';
+      signInBtn.style.color = 'black';
+    };
+  </script>
+</body>
+</html>
