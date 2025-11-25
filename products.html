@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <header style="background-color:#333; padding:10px 0;">
+  <nav>
+    <ul style="list-style:none; margin:0; padding:0; display:flex; justify-content:center;">
+      <li style="margin:0 15px;">
+        <a href="index.html" style="text-decoration:none; color:white; font-weight:bold; transition:color 0.3s;">Home</a>
+      </li>
+      <li style="margin:0 15px;">
+        <a href="discount.html" style="text-decoration:none; color:white; font-weight:bold; transition:color 0.3s;">Discounts</a>
+      </li>
+      <li style="margin:0 15px;">
+        <a href="delivery.html" style="text-decoration:none; color:white; font-weight:bold; transition:color 0.3s;">Delivery</a>
+      </li>
+      <li style="margin:0 15px;">
+        <a href="addToCart.html" style="text-decoration:none; color:white; font-weight:bold; transition:color 0.3s;">Cart</a>
+      </li>
+      <li style="margin:0 15px;">
+        <a href="payment.html" style="text-decoration:none; color:white; font-weight:bold; transition:color 0.3s;">Payment</a>
+      </li>
+      <li style="margin:0 15px;">
+        <a href="signin.html" style="text-decoration:none; color:white; font-weight:bold; transition:color 0.3s;">Sign In</a>
+      </li>
+    </ul>
+  </nav>
+</header>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Product Catalog</title>
+</head>
+
+<!-- Header Navigation Bar -->
+<div style="width: 100%; background-color: #0078D4; padding: 12px 20px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+  <a href="index.html" style="color: white; text-decoration: none; font-size: 1em; font-weight: bold;">
+    ← Back to Home
+  </a>
+</div>
+<body style="font-family: 'Segoe UI', sans-serif; background-color: #f0f0f0; margin: 0; padding: 20px;">
+
+  <h1 style="text-align: center; color: #333;">Product Catalog</h1>
+
+  <div style="max-width: 800px; margin: auto; overflow-y: auto; max-height: 700px; padding: 10px; background: #fff; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1);">
+
+  
+    <div style="display: block; margin-bottom: 20px; border-bottom: 1px solid #ddd; padding-bottom: 15px;">
+      <div style="display: flex; align-items: center;">
+        <img src="/public/images/headphone.png" alt="Wireless Headphones" style="width: 120px; height: 120px; object-fit: cover; border-radius: 8px; margin-right: 20px;" />
+        <div style="flex-grow: 1;">
+          <h2 style="margin: 0; color: #333;">Wireless Headphones</h2>
+          <p style="margin: 5px 0; color: #555;">Noise-cancelling, high-fidelity sound.</p>
+          <p style="font-weight: bold; color: #0078D4;">₹2,499</p>
+          <button onclick="addToCart('Wireless Headphones', 2499)" 
+  style="padding: 10px 20px; background-color: #0078D4; color: white; border: none; border-radius: 6px; font-size: 16px; cursor: pointer; transition: background-color 0.3s ease, transform 0.2s ease; box-shadow: 0 4px 6px rgba(0,0,0,0.1);"
+  onmouseover="this.style.backgroundColor='#005fa3'; this.style.transform='scale(1.05)'"
+  onmouseout="this.style.backgroundColor='#0078D4'; this.style.transform='scale(1)'"
+  onmousedown="this.style.transform='scale(0.98)'"
+  onmouseup="this.style.transform='scale(1.05)'"
+>
+  Add to Cart
+</button>
+      </div>
+    </div>
+    <div style="display: block; margin-bottom: 20px; border-bottom: 1px solid #ddd; padding-bottom: 15px;">
+      <div style="display: flex; align-items: center;">
+        <img src="/public/images/shoe.png" alt="Shoe" style="width: 120px; height: 120px; object-fit: cover; border-radius: 8px; margin-right: 20px;" />
+        <div style="flex-grow: 1;">
+          <h2 style="margin: 0; color: #333;">Shoe</h2>
+          <p style="margin: 5px 0; color: #555;">Walk Smooth.</p>
+          <p style="font-weight: bold; color: #0078D4;">₹5,999</p>
+          <button onclick="addToCart('Shoe', 5499)" 
+  style="padding: 10px 20px; background-color: #0078D4; color: white; border: none; border-radius: 6px; font-size: 16px; cursor: pointer; transition: background-color 0.3s ease, transform 0.2s ease; box-shadow: 0 4px 6px rgba(0,0,0,0.1);"
+  onmouseover="this.style.backgroundColor='#005fa3'; this.style.transform='scale(1.05)'"
+  onmouseout="this.style.backgroundColor='#0078D4'; this.style.transform='scale(1)'"
+  onmousedown="this.style.transform='scale(0.98)'"
+  onmouseup="this.style.transform='scale(1.05)'"
+>
+  Add to Cart
+</button>
+        </div>
+      </div>
+    </div>
+    <div style="display: block; margin-bottom: 20px; border-bottom: 1px solid #ddd; padding-bottom: 15px;">
+      <div style="display: flex; align-items: center;">
+        <img src="/public/images/watch.png" alt="Smartwatch" style="width: 120px; height: 120px; object-fit: cover; border-radius: 8px; margin-right: 20px;" />
+        <div style="flex-grow: 1;">
+          <h2 style="margin: 0; color: #333;">Smartwatch</h2>
+          <p style="margin: 5px 0; color: #555;">Track fitness, heart rate, and more.</p>
+          <p style="font-weight: bold; color: #0078D4;">₹1,999</p>
+          <button onclick="addToCart('Smartwatch', 1999)" 
+  style="padding: 10px 20px; background-color: #0078D4; color: white; border: none; border-radius: 6px; font-size: 16px; cursor: pointer; transition: background-color 0.3s ease, transform 0.2s ease; box-shadow: 0 4px 6px rgba(0,0,0,0.1);"
+  onmouseover="this.style.backgroundColor='#005fa3'; this.style.transform='scale(1.05)'"
+  onmouseout="this.style.backgroundColor='#0078D4'; this.style.transform='scale(1)'"
+  onmousedown="this.style.transform='scale(0.98)'"
+  onmouseup="this.style.transform='scale(1.05)'"
+>
+  Add to Cart
+</button>
+        </div>
+      </div>
+    </div>
+    <div style="display: block; margin-bottom: 20px; border-bottom: 1px solid #ddd; padding-bottom: 15px;">
+      <div style="display: flex; align-items: center;">
+        <img src="/public/images/monitor.png" alt="Monitor" style="width: 120px; height: 120px; object-fit: cover; border-radius: 8px; margin-right: 20px;" />
+        <div style="flex-grow: 1;">
+          <h2 style="margin: 0; color: #333;">Monitor</h2>
+          <p style="margin: 5px 0; color: #555;">See the Future.</p>
+          <p style="font-weight: bold; color: #0078D4;">₹14,999</p>
+          <button onclick="addToCart('Monitor', 14999)" 
+  style="padding: 10px 20px; background-color: #0078D4; color: white; border: none; border-radius: 6px; font-size: 16px; cursor: pointer; transition: background-color 0.3s ease, transform 0.2s ease; box-shadow: 0 4px 6px rgba(0,0,0,0.1);"
+  onmouseover="this.style.backgroundColor='#005fa3'; this.style.transform='scale(1.05)'"
+  onmouseout="this.style.backgroundColor='#0078D4'; this.style.transform='scale(1)'"
+  onmousedown="this.style.transform='scale(0.98)'"
+  onmouseup="this.style.transform='scale(1.05)'"
+>
+  Add to Cart
+</button>
+        </div>
+      </div>
+    </div>
+    <div style="display: block; margin-bottom: 20px; border-bottom: 1px solid #ddd; padding-bottom: 15px;">
+      <div style="display: flex; align-items: center;">
+        <img src="/public/images/console2.png" alt="Gaming Console" style="width: 120px; height: 120px; object-fit: cover; border-radius: 8px; margin-right: 20px;" />
+        <div style="flex-grow: 1;">
+          <h2 style="margin: 0; color: #333;">Gaming Console</h2>
+          <p style="margin: 5px 0; color: #555;">Be the Beast.</p>
+          <p style="font-weight: bold; color: #0078D4;">₹60,000</p>
+<button onclick="addToCart('Gaming Console', 60000)" 
+  style="padding: 10px 20px; background-color: #0078D4; color: white; border: none; border-radius: 6px; font-size: 16px; cursor: pointer; transition: background-color 0.3s ease, transform 0.2s ease; box-shadow: 0 4px 6px rgba(0,0,0,0.1);"
+  onmouseover="this.style.backgroundColor='#005fa3'; this.style.transform='scale(1.05)'"
+  onmouseout="this.style.backgroundColor='#0078D4'; this.style.transform='scale(1)'"
+  onmousedown="this.style.transform='scale(0.98)'"
+  onmouseup="this.style.transform='scale(1.05)'"
+>
+  Add to Cart
+</button>
+        </div>
+      </div>
+    </div>
+    <div style="display: block; margin-bottom: 20px; border-bottom: 1px solid #ddd; padding-bottom: 15px;">
+      <div style="display: flex; align-items: center;">
+        <img src="/public/images/buds.png" alt="Earbuds" style="width: 120px; height: 120px; object-fit: cover; border-radius: 8px; margin-right: 20px;" />
+        <div style="flex-grow: 1;">
+          <h2 style="margin: 0; color: #333;">Earbuds</h2>
+          <p style="margin: 5px 0; color: #555;">Feel the Environment.</p>
+          <p style="font-weight: bold; color: #0078D4;">₹5,550</p>
+<button onclick="addToCart('Earbuds', 5550)" 
+  style="padding: 10px 20px; background-color: #0078D4; color: white; border: none; border-radius: 6px; font-size: 16px; cursor: pointer; transition: background-color 0.3s ease, transform 0.2s ease; box-shadow: 0 4px 6px rgba(0,0,0,0.1);"
+  onmouseover="this.style.backgroundColor='#005fa3'; this.style.transform='scale(1.05)'"
+  onmouseout="this.style.backgroundColor='#0078D4'; this.style.transform='scale(1)'"
+  onmousedown="this.style.transform='scale(0.98)'"
+  onmouseup="this.style.transform='scale(1.05)'"
+>
+  Add to Cart
+</button>
+        </div>
+      </div>
+    </div>
+    <div style="display: block; margin-bottom: 20px; border-bottom: 1px solid #ddd; padding-bottom: 15px;">
+      <div style="display: flex; align-items: center;">
+        <img src="/public/images/cover.png" alt="Mobilecover" style="width: 120px; height: 120px; object-fit: cover; border-radius: 8px; margin-right: 20px;" />
+        <div style="flex-grow: 1;">
+          <h2 style="margin: 0; color: #333;">Mobile Cover</h2>
+          <p style="margin: 5px 0; color: #555;">Touch the Screen.</p>
+          <p style="font-weight: bold; color: #0078D4;">₹1,990</p>
+          <button onclick="addToCart('Mobilecover', 1990)" 
+  style="padding: 10px 20px; background-color: #0078D4; color: white; border: none; border-radius: 6px; font-size: 16px; cursor: pointer; transition: background-color 0.3s ease, transform 0.2s ease; box-shadow: 0 4px 6px rgba(0,0,0,0.1);"
+  onmouseover="this.style.backgroundColor='#005fa3'; this.style.transform='scale(1.05)'"
+  onmouseout="this.style.backgroundColor='#0078D4'; this.style.transform='scale(1)'"
+  onmousedown="this.style.transform='scale(0.98)'"
+  onmouseup="this.style.transform='scale(1.05)'"
+>
+  Add to Cart
+</button>
+        </div>
+      </div>
+    </div>
+    <div style="display: block; margin-bottom: 20px; border-bottom: 1px solid #ddd; padding-bottom: 15px;">
+      <div style="display: flex; align-items: center;">
+        <img src="/public/images/tv.png" alt="Television" style="width: 120px; height: 120px; object-fit: cover; border-radius: 8px; margin-right: 20px;" />
+        <div style="flex-grow: 1;">
+          <h2 style="margin: 0; color: #333;">Television</h2>
+          <p style="margin: 5px 0; color: #555;">Led TV 24 inch.</p>
+          <p style="font-weight: bold; color: #0078D4;">₹25,999</p>
+       <button onclick="addToCart('Television', 25999)" 
+  style="padding: 10px 20px; background-color: #0078D4; color: white; border: none; border-radius: 6px; font-size: 16px; cursor: pointer; transition: background-color 0.3s ease, transform 0.2s ease; box-shadow: 0 4px 6px rgba(0,0,0,0.1);"
+  onmouseover="this.style.backgroundColor='#005fa3'; this.style.transform='scale(1.05)'"
+  onmouseout="this.style.backgroundColor='#0078D4'; this.style.transform='scale(1)'"
+  onmousedown="this.style.transform='scale(0.98)'"
+  onmouseup="this.style.transform='scale(1.05)'"
+>
+  Add to Cart
+</button>
+        </div>
+      </div>
+    </div>
+    <div style="display: block; margin-bottom: 20px; border-bottom: 1px solid #ddd; padding-bottom: 15px;">
+      <div style="display: flex; align-items: center;">
+        <img src="/public/images/wash.png" alt="Washing Machine" style="width: 120px; height: 120px; object-fit: cover; border-radius: 8px; margin-right: 20px;" />
+        <div style="flex-grow: 1;">
+          <h2 style="margin: 0; color: #333;">Washing Machine</h2>
+          <p style="margin: 5px 0; color: #555;">Wash Your Dirt.</p>
+          <p style="font-weight: bold; color: #0078D4;">₹30,999</p>
+          <button onclick="addToCart('Washing Machine', 30999)" 
+  style="padding: 10px 20px; background-color: #0078D4; color: white; border: none; border-radius: 6px; font-size: 16px; cursor: pointer; transition: background-color 0.3s ease, transform 0.2s ease; box-shadow: 0 4px 6px rgba(0,0,0,0.1);"
+  onmouseover="this.style.backgroundColor='#005fa3'; this.style.transform='scale(1.05)'"
+  onmouseout="this.style.backgroundColor='#0078D4'; this.style.transform='scale(1)'"
+  onmousedown="this.style.transform='scale(0.98)'"
+  onmouseup="this.style.transform='scale(1.05)'"
+>
+  Add to Cart
+</button>
+        </div>
+      </div>
+    </div>
+    <div style="display: block; margin-bottom: 20px; border-bottom: 1px solid #ddd; padding-bottom: 15px;">
+      <div style="display: flex; align-items: center;">
+        <img src="/public/images/cpu.png" alt="CPU" style="width: 120px; height: 120px; object-fit: cover; border-radius: 8px; margin-right: 20px;" />
+        <div style="flex-grow: 1;">
+          <h2 style="margin: 0; color: #333;">CPU</h2>
+          <p style="margin: 5px 0; color: #555;">Experince the Smoothness.</p>
+          <p style="font-weight: bold; color: #0078D4;">₹1,25,000</p>
+         <button onclick="addToCart('CPU', 125000)" 
+  style="padding: 10px 20px; background-color: #0078D4; color: white; border: none; border-radius: 6px; font-size: 16px; cursor: pointer; transition: background-color 0.3s ease, transform 0.2s ease; box-shadow: 0 4px 6px rgba(0,0,0,0.1);"
+  onmouseover="this.style.backgroundColor='#005fa3'; this.style.transform='scale(1.05)'"
+  onmouseout="this.style.backgroundColor='#0078D4'; this.style.transform='scale(1)'"
+  onmousedown="this.style.transform='scale(0.98)'"
+  onmouseup="this.style.transform='scale(1.05)'"
+>
+  Add to Cart
+</button>
+        </div>
+      </div>
+    </div>
+    <div style="display: block; margin-bottom: 20px; border-bottom: 1px solid #ddd; padding-bottom: 15px;">
+      <div style="display: flex; align-items: center;">
+        <img src="/public/images/ac.png" alt="Air Conditioner" style="width: 120px; height: 120px; object-fit: cover; border-radius: 8px; margin-right: 20px;" />
+        <div style="flex-grow: 1;">
+          <h2 style="margin: 0; color: #333;">Air Conditioner</h2>
+          <p style="margin: 5px 0; color: #555;">Be cool.</p>
+          <p style="font-weight: bold; color: #0078D4;">₹50,000</p>
+          <button onclick="addToCart('Air Conditioner', 50000)" 
+  style="padding: 10px 20px; background-color: #0078D4; color: white; border: none; border-radius: 6px; font-size: 16px; cursor: pointer; transition: background-color 0.3s ease, transform 0.2s ease; box-shadow: 0 4px 6px rgba(0,0,0,0.1);"
+  onmouseover="this.style.backgroundColor='#005fa3'; this.style.transform='scale(1.05)'"
+  onmouseout="this.style.backgroundColor='#0078D4'; this.style.transform='scale(1)'"
+  onmousedown="this.style.transform='scale(0.98)'"
+  onmouseup="this.style.transform='scale(1.05)'"
+>
+  Add to Cart
+</button>
+        </div>
+      </div>
+    </div>
+    <div style="display: block; margin-bottom: 20px; border-bottom: 1px solid #ddd; padding-bottom: 15px;">
+      <div style="display: flex; align-items: center;">
+        <img src="/public/images/mouse.png" alt="Mouse" style="width: 120px; height: 120px; object-fit: cover; border-radius: 8px; margin-right: 20px;" />
+        <div style="flex-grow: 1;">
+          <h2 style="margin: 0; color: #333;">Mouse</h2>
+          <p style="margin: 5px 0; color: #555;">Level Up Your Gaming Experience.</p>
+          <p style="font-weight: bold; color: #0078D4;">₹1,900</p>
+          <button onclick="addToCart('Mouse', 1900)" 
+  style="padding: 10px 20px; background-color: #0078D4; color: white; border: none; border-radius: 6px; font-size: 16px; cursor: pointer; transition: background-color 0.3s ease, transform 0.2s ease; box-shadow: 0 4px 6px rgba(0,0,0,0.1);"
+  onmouseover="this.style.backgroundColor='#005fa3'; this.style.transform='scale(1.05)'"
+  onmouseout="this.style.backgroundColor='#0078D4'; this.style.transform='scale(1)'"
+  onmousedown="this.style.transform='scale(0.98)'"
+  onmouseup="this.style.transform='scale(1.05)'"
+>
+  Add to Cart
+</button>
+        </div>
+      </div>
+    </div>
+    <div style="display: block; margin-bottom: 20px; border-bottom: 1px solid #ddd; padding-bottom: 15px;">
+      <div style="display: flex; align-items: center;">
+        <img src="/public/images/gam2.png" alt="Gaming Laptop" style="width: 120px; height: 120px; object-fit: cover; border-radius: 8px; margin-right: 20px;" />
+        <div style="flex-grow: 1;">
+          <h2 style="margin: 0; color: #333;">Gaming Laptop</h2>
+          <p style="margin: 5px 0; color: #555;">Feel the Realness.</p>
+          <p style="font-weight: bold; color: #0078D4;">₹95,900</p>
+          <button onclick="addToCart('Gaming Laptop', 95900)" 
+  style="padding: 10px 20px; background-color: #0078D4; color: white; border: none; border-radius: 6px; font-size: 16px; cursor: pointer; transition: background-color 0.3s ease, transform 0.2s ease; box-shadow: 0 4px 6px rgba(0,0,0,0.1);"
+  onmouseover="this.style.backgroundColor='#005fa3'; this.style.transform='scale(1.05)'"
+  onmouseout="this.style.backgroundColor='#0078D4'; this.style.transform='scale(1)'"
+  onmousedown="this.style.transform='scale(0.98)'"
+  onmouseup="this.style.transform='scale(1.05)'"
+>
+  Add to Cart
+</button>
+        </div>
+      </div>
+    </div>
+    <div style="display: block; margin-bottom: 20px; border-bottom: 1px solid #ddd; padding-bottom: 15px;">
+      <div style="display: flex; align-items: center;">
+        <img src="/public/images/power.png" alt="Power Bank" style="width: 120px; height: 120px; object-fit: cover; border-radius: 8px; margin-right: 20px;" />
+        <div style="flex-grow: 1;">
+          <h2 style="margin: 0; color: #333;">Power Bank</h2>
+          <p style="margin: 5px 0; color: #555;">Charge the Energy.</p>
+          <p style="font-weight: bold; color: #0078D4;">₹7,999</p>
+         <button onclick="addToCart('Power Bank', 7999)" 
+  style="padding: 10px 20px; background-color: #0078D4; color: white; border: none; border-radius: 6px; font-size: 16px; cursor: pointer; transition: background-color 0.3s ease, transform 0.2s ease; box-shadow: 0 4px 6px rgba(0,0,0,0.1);"
+  onmouseover="this.style.backgroundColor='#005fa3'; this.style.transform='scale(1.05)'"
+  onmouseout="this.style.backgroundColor='#0078D4'; this.style.transform='scale(1)'"
+  onmousedown="this.style.transform='scale(0.98)'"
+  onmouseup="this.style.transform='scale(1.05)'"
+>
+  Add to Cart
+</button>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
+    <div style="display: block; margin-bottom: 20px; border-bottom: 1px solid #ddd; padding-bottom: 15px;">
+      <div style="display: flex; align-items: center;">
+        <img src="/public/images/key.png" alt="Gaming Keyboard" style="width: 120px; height: 120px; object-fit: cover; border-radius: 8px; margin-right: 20px;" />
+        <div style="flex-grow: 1;">
+          <h2 style="margin: 0; color: #333;">Gaming Keyboard</h2>
+          <p style="margin: 5px 0; color: #555;">Tap the Reality.</p>
+          <p style="font-weight: bold; color: #0078D4;">₹4,999</p>
+         <button onclick="addToCart('Gaming Keyboard', 4999)" 
+  style="padding: 10px 20px; background-color: #0078D4; color: white; border: none; border-radius: 6px; font-size: 16px; cursor: pointer; transition: background-color 0.3s ease, transform 0.2s ease; box-shadow: 0 4px 6px rgba(0,0,0,0.1);"
+  onmouseover="this.style.backgroundColor='#005fa3'; this.style.transform='scale(1.05)'"
+  onmouseout="this.style.backgroundColor='#0078D4'; this.style.transform='scale(1)'"
+  onmousedown="this.style.transform='scale(0.98)'"
+  onmouseup="this.style.transform='scale(1.05)'"
+>
+  Add to Cart
+</button>
+        </div>
+      </div>
+    </div>
+
+<script>
+  function addToCart(name, price) {
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+    cart.push({ name, price });
+    localStorage.setItem("cart", JSON.stringify(cart));
+    window.location.href = "addToCart.html";
+  }
+</script>
+
+
+
+
+
+
+    <!-- See More Bar -->
+<div style="text-align: center; margin-top: 20px;">
+  <a href="discount.html"><button style="padding: 12px 24px; background-color: #333; color: white; border: none; border-radius: 4px; font-size: 1em; cursor: pointer;">
+    See More Products
+  </button></a>
+</div>
+  <!-- Popup Overlay (Initially Hidden) -->
+   
+  <div id="popup" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.6); justify-content:center; align-items:center; z-index:999;">
+    
+    <!-- Popup Box -->
+    <div style="background:#fff; padding:20px; border-radius:10px; width:350px; text-align:center; position:relative; box-shadow:0 0 15px rgba(0,0,0,0.3);">
+      
+      <!-- Close Button -->
+      <button onclick="document.getElementById('popup').style.display='none'" style="position:absolute; top:10px; right:15px; background:#d40000; color:white; border:none; border-radius:50%; width:25px; height:25px; font-size:16px; cursor:pointer;">×</button>
+      
+      <!-- Image -->
+      <img src="/public/images/discount.png" alt="Christmas Discount" style="width:100%; border-radius:8px; margin-bottom:15px;" />
+      
+      <!-- Message -->
+      <h2 style="color:#d40000; margin:10px 0;">🎄 Christmas Sale!</h2>
+      <p style="color:#333; font-size:1em;">Get up to <strong>50% OFF</strong> on all products. Limited time offer!</p>
+      <a href="discount.html" style="display:inline-block; margin-top:15px; padding:10px 20px; background-color:#0078D4; color:white; text-decoration:none; border-radius:5px; font-weight:bold;">
+  View  Discount Page →
+</a>
+    
+    </div>
+  </div>
+
+  <!-- JavaScript to Delay Popup -->
+  <script>
+    setTimeout(function() {
+      document.getElementById('popup').style.display = 'flex';
+    }, 10000); // 30,000 milliseconds = 30 seconds
+  </script>
+
+
+
+    <!-- Continue this pattern for products 3 to 15 -->
+
+  </div>
+
+</body>
+</html>

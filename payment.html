@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>BuyBhai Payment</title>
+  <!-- Common Header with Inline CSS -->
+<header style="background-color:#333; padding:10px 0;">
+  <nav>
+    <ul style="list-style:none; margin:0; padding:0; display:flex; justify-content:center;">
+      <li style="margin:0 15px;">
+        <a href="index.html" style="text-decoration:none; color:white; font-weight:bold; transition:color 0.3s;">Home</a>
+      </li>
+      <li style="margin:0 15px;">
+        <a href="discount.html" style="text-decoration:none; color:white; font-weight:bold; transition:color 0.3s;">Discounts</a>
+      </li>
+      <li style="margin:0 15px;">
+        <a href="delivery.html" style="text-decoration:none; color:white; font-weight:bold; transition:color 0.3s;">Delivery</a>
+      </li>
+      <li style="margin:0 15px;">
+        <a href="addToCart.html" style="text-decoration:none; color:white; font-weight:bold; transition:color 0.3s;">Cart</a>
+      </li>
+      <li style="margin:0 15px;">
+        <a href="payment.html" style="text-decoration:none; color:white; font-weight:bold; transition:color 0.3s;">Payment</a>
+      </li>
+      <li style="margin:0 15px;">
+        <a href="signin.html" style="text-decoration:none; color:white; font-weight:bold; transition:color 0.3s;">Sign In</a>
+      </li>
+    </ul>
+  </nav>
+</header>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #fff3e0, #ffe0b2);
+      margin: 0;
+      padding: 30px;
+      color: #333;
+    }
+    .container {
+      max-width: 600px;
+      margin: auto;
+      background: white;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(255, 87, 34, 0.3);
+    }
+    h2 {
+      text-align: center;
+      color: #d50000;
+      margin-bottom: 20px;
+    }
+    .item {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px 0;
+      border-bottom: 1px solid #eee;
+    }
+    .summary {
+      margin-top: 20px;
+      font-size: 1.1em;
+    }
+    .summary div {
+      margin: 5px 0;
+    }
+    input {
+      width: 100%;
+      padding: 12px;
+      margin-top: 10px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1em;
+    }
+    .glow-btn {
+      width: 100%;
+      padding: 14px;
+      margin-top: 20px;
+      background: linear-gradient(45deg, #ff416c, #ff4b2b);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 1.1em;
+      cursor: pointer;
+      box-shadow: 0 0 15px rgba(255, 65, 108, 0.6);
+      transition: 0.3s ease;
+    }
+    .glow-btn:hover {
+      box-shadow: 0 0 25px rgba(255, 65, 108, 0.9);
+    }
+  </style>
+</head>
+<br class="text-center mt-3">
+  <a href="delivery.html" class="btn btn-outline-primary btn-sm me-2" title="Back to Payment">
+    <i class="bi bi-arrow-left-circle"></i> Delivery
+  </a></br>
+
+
+
+
+
+
+  <a href="addToCart.html" class="btn btn-outline-secondary btn-sm" title="Back to Cart">
+    <i class="bi bi-cart"></i> B2Cart
+  </a>
+</div>
+<body>
+  
+
+  <div class="container">
+    <h2>🛒 Payment Summary</h2>
+    <div id="items"></div>
+
+    <div class="summary">
+      <div id="subtotal"></div>
+      <div id="gst"></div>
+      <div id="total"></div>
+    </div>
+
+    <div>
+      <label for="mobile">📱 Enter Mobile Number:</label>
+      <input type="text" id="mobile" placeholder="e.g. 9876543210" />
+      <button class="glow-btn" onclick="sendOTP()">Send OTP</button>
+    </div>
+
+    <div id="otpSection" style="display:none;">
+      <label for="otp">🔐 Enter OTP:</label>
+      <input type="text" id="otp" placeholder="Enter OTP" />
+      <form method="POST" action="verify_otp.php">
+  <input type="text" name="otp" placeholder="Enter OTP" required>
+  <button type="submit">Verify OTP</button>
+</form>
+
+    </div>
+  </div>
+
+  <script>
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+    const itemsDiv = document.getElementById("items");
+    let subtotal = 0;
+
+    cart.forEach(item => {
+      const div = document.createElement("div");
+      div.className = "item";
+      div.innerHTML = `<span>${item.name}</span><span>₹${item.price}</span>`;
+      itemsDiv.appendChild(div);
+      subtotal += item.price;
+    });
+
+    const gst = Math.round(subtotal * 0.18);
+    const total = subtotal + gst;
+
+    document.getElementById("subtotal").innerText = `Subtotal: ₹${subtotal}`;
+    document.getElementById("gst").innerText = `GST (18%): ₹${gst}`;
+    document.getElementById("total").innerText = `Total Amount: ₹${total}`;
+
+    function sendOTP() {
+      const mobile = document.getElementById("mobile").value;
+      if (!mobile.match(/^\d{10}$/)) {
+        alert("Please enter a valid 10-digit mobile number.");
+        return;
+      }
+
+      fetch("php-backend/send_otp.php", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: "mobile=" + encodeURIComponent(mobile)
+      })
+      .then(res => {
+        if (!res.ok) throw new Error("Network error");
+        return res.text();
+      })
+      .then(data => {
+        alert(data);
+        document.getElementById("otpSection").style.display = "block";
+      })
+      .catch(err => {
+        console.error("Fetch error:", err);
+        alert("Failed to send OTP. Make sure Apache is running and file path is correct.");
+      });
+    }
+
+    function verifyOTP() {
+      const otp = document.getElementById("otp").value;
+      fetch("php-backend/verify_otp.php", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: "otp=" + encodeURIComponent(otp)
+      })
+      .then(res => res.text())
+      .then(data => {
+        alert(data);
+        if (data.toLowerCase().includes("verified")) {
+          localStorage.removeItem("cart");
+          window.location.href = "thankyou.html";
+        }
+      });
+    }
+  </script>
+</body>
+</html>

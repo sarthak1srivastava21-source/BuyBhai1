@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Cart Summary</title>
+  <!-- Common Header with Inline CSS -->
+<header style="background-color:#333; padding:10px 0;">
+  <nav>
+    <ul style="list-style:none; margin:0; padding:0; display:flex; justify-content:center;">
+      <li style="margin:0 15px;">
+        <a href="index.html" style="text-decoration:none; color:white; font-weight:bold; transition:color 0.3s;">Home</a>
+      </li>
+      <li style="margin:0 15px;">
+        <a href="discount.html" style="text-decoration:none; color:white; font-weight:bold; transition:color 0.3s;">Discounts</a>
+      </li>
+      <li style="margin:0 15px;">
+        <a href="delivery.html" style="text-decoration:none; color:white; font-weight:bold; transition:color 0.3s;">Delivery</a>
+      </li>
+      <li style="margin:0 15px;">
+        <a href="addToCart.html" style="text-decoration:none; color:white; font-weight:bold; transition:color 0.3s;">Cart</a>
+      </li>
+      <li style="margin:0 15px;">
+        <a href="payment.html" style="text-decoration:none; color:white; font-weight:bold; transition:color 0.3s;">Payment</a>
+      </li>
+      <li style="margin:0 15px;">
+        <a href="signin.html" style="text-decoration:none; color:white; font-weight:bold; transition:color 0.3s;">Sign In</a>
+      </li>
+    </ul>
+  </nav>
+</header>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f9f9f9;
+      margin: 0;
+      padding: 20px;
+    }
+    .cart-box {
+      max-width: 600px;
+      margin: auto;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      padding: 25px;
+    }
+    h2 {
+      text-align: center;
+      color: #444;
+    }
+    .cart-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 0;
+      border-bottom: 1px solid #ddd;
+    }
+    .cart-item:last-child {
+      border-bottom: none;
+    }
+    .cart-item span {
+      flex: 1;
+    }
+    .remove-btn {
+      background: red;
+      color: white;
+      border: none;
+      padding: 6px 10px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 14px;
+      margin-left: 10px;
+    }
+    .total {
+      text-align: right;
+      font-size: 18px;
+      font-weight: bold;
+      margin-top: 20px;
+      color: #007bff;
+    }
+    .glow-btn {
+      width: 100%;
+      padding: 12px;
+      margin-top: 20px;
+      background: linear-gradient(45deg, #ff416c, #ff4b2b);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      box-shadow: 0 0 15px rgba(255, 65, 108, 0.6);
+      transition: 0.3s ease;
+    }
+    .glow-btn:hover {
+      box-shadow: 0 0 25px rgba(255, 65, 108, 0.9);
+    }
+  </style>
+    <a href="products.html"
+  style="display: inline-block; padding: 12px 24px; background-color: #0078D4; color: white; text-decoration: none; font-size: 16px; font-weight: bold; border-radius: 8px; box-shadow: 0 0 10px #0078D4, 0 0 20px #0078D4; transition: all 0.3s ease; cursor: pointer;"
+  onmouseover="this.style.boxShadow='0 0 15px #00aaff, 0 0 30px #00aaff'; this.style.transform='scale(1.05)'"
+  onmouseout="this.style.boxShadow='0 0 10px #0078D4, 0 0 20px #0078D4'; this.style.transform='scale(1)'"
+  onmousedown="this.style.transform='scale(0.95)'"
+  onmouseup="this.style.transform='scale(1.05)'"
+>
+  ⬅ Back to Product Catalog
+</a>
+</head>
+<a href="discount.html">
+  <button style="
+    background: linear-gradient(45deg, #ff1744, #ff5252);
+    color: white;
+    border: none;
+    padding: 14px 28px;
+    font-size: 1.2em;
+    font-weight: bold;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 0 20px rgba(255, 23, 68, 0.6), 0 0 40px rgba(255, 82, 82, 0.4);
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
+  " onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 0 30px rgba(255, 23, 68, 0.8), 0 0 60px rgba(255, 82, 82, 0.6)'" 
+     onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 0 20px rgba(255, 23, 68, 0.6), 0 0 40px rgba(255, 82, 82, 0.4)'">
+    🎄 View Christmas Discounts
+  </button>
+</a>
+<body>
+
+<div class="cart-box">
+  <h2>🛍️ Your Cart</h2>
+  <div id="cart-items"></div>
+  <div class="total" id="cart-total">Total: ₹0</div>
+  <a href="payment.html"><button class="glow-btn">Proceed to Payment</button></a>
+</div>
+
+<script>
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  const cartItemsDiv = document.getElementById("cart-items");
+  const cartTotalDiv = document.getElementById("cart-total");
+
+  function renderCart() {
+    cartItemsDiv.innerHTML = "";
+    let total = 0;
+
+    cart.forEach((item, index) => {
+      const div = document.createElement("div");
+      div.className = "cart-item";
+      div.innerHTML = `
+        <span>${item.name}</span>
+        <span>₹${item.price}</span>
+        <button class="remove-btn" onclick="removeItem(${index})">Remove</button>
+      `;
+      cartItemsDiv.appendChild(div);
+      total += item.price;
+    });
+
+    cartTotalDiv.textContent = `Total: ₹${total}`;
+  }
+
+  function removeItem(index) {
+    cart.splice(index, 1);
+    localStorage.setItem("cart", JSON.stringify(cart));
+    renderCart();
+  }
+
+  renderCart();
+</script>
+
+</body>
+</html>
